@@ -1,7 +1,17 @@
 const fs = require('fs');
-const { Client } = require('@elastic/elasticsearch')
-
-const client = new Client({ node: 'http://localhost:9200' })
+const { Client } = require('@elastic/elasticsearch');
+const {CLIENT_ID,PASSWORD,USERNAME} = require("../config")
+require('dotenv').config();
+console.log(process.env.CLIENT_ID,process.env.PASSWORD,process.env.USERNAME)
+const client = new Client({
+    cloud: {
+      id: CLIENT_ID,
+    },
+    auth: {
+      username: USERNAME,
+      password: PASSWORD
+    }
+  })
 const FILE_PATH = '/Users/rafaelferrazrodrigues/Documents/hackaday/newfile.json'
 const cards = JSON.parse(fs.readFileSync(FILE_PATH).toString())
 console.log(`${cards.length} realties in xml file. ${JSON.stringify(cards[0])}`)
