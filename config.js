@@ -1,4 +1,4 @@
-require('dotenv').config();
-module.exports.CLIENT_ID = process.env.CLIENT_ID
-module.exports.USERNAME = process.env.USERNAME
-module.exports.PASSWORD = process.env.PASSWORD
+// require('dotenv').config();
+export const CLIENT_ID = process.env.CLIENT_ID
+export const USERNAME = process.env.USERNAME
+export const PASSWORD = process.env.PASSWORD
